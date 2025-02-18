@@ -1,0 +1,27 @@
+﻿<Window x:Class="Лабораторная2_Убейтенаспж_.AddProject"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Лабораторная2_Убейтенаспж_"
+        mc:Ignorable="d"
+        Title="AddProject" Height="450" Width="800">
+    <Grid>
+        <StackPanel DataContext="{Binding Project}">
+            <Label Content=" "/>
+            <Label Content="Название проекта"/>
+            <TextBox Text="{Binding Title}"/>
+            <Label Content="Описание проекта"/>
+            <TextBox Text="{Binding Description}"/>
+            <Label Content="Дата начала"/>
+            <TextBox Text="{Binding DateStart}"/>
+            <Label Content="Дата окончания"/>
+            <TextBox Text="{Binding DateEnd}"/>
+            <Label Content="Бюджет"/>
+            <TextBox Text="{Binding Budget}"/>
+            <Label Content="Статус проекта"/>
+            <TextBox Text="{Binding Status}"/>
+            <Button Content="Добавить проект" Click="Save"/>
+        </StackPanel>
+    </Grid>
+</Window>
