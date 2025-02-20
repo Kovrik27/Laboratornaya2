@@ -66,8 +66,9 @@ namespace Лабораторная2_Убейтенаспж_
 
         private void OpenAddProject(object sender, RoutedEventArgs e)
         {
-            AddProject addProject = new AddProject();
-            addProject.Show();
+            //AddProject addProject = new AddProject();
+            //addProject.Show();
+            MessageBox.Show("Эта функция в разработке, поскольку за много часов я её не починила... Спрошу у Пушкина... Потыкайте другие...");
         }
 
         private void OpenUpdateProject(object sender, RoutedEventArgs e)

@@ -106,9 +106,9 @@ namespace Лабораторная2_Убейтенаспж_
             }
         }
 
-        public async void UpdateTask(Task task)
+        public void UpdateTask(Task task, Project project)
         {
-            var taskOld = Project.Tasks.FirstOrDefault(s => s.Id == task.Id);
+            var taskOld = project.Tasks.FirstOrDefault(s => s.Id == task.Id);
             if (taskOld == null)
                 return;
             else
@@ -121,13 +121,14 @@ namespace Лабораторная2_Убейтенаспж_
             }
         }
 
-        public async void DeleteTask(Task task)
+        public void DeleteTask(Task task, Project project)
         {
-            var taskKill = Project.Tasks.FirstOrDefault(s => s.Id == task.Id);
-            if (task.Id == taskKill.Id)
+            var taskKill = project.Tasks.FirstOrDefault(s => s.Id == task.Id);
+            if (taskKill != null)
             {
-                Project.Tasks.Remove(task);
+                project.Tasks.Remove(taskKill);
             }
+
         }
 
 

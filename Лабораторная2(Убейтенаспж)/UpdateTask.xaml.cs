@@ -20,18 +20,20 @@ namespace Лабораторная2_Убейтенаспж_
     public partial class UpdateTask : Window
     {
         private Task task;
+        private Project project;
         private ProjectsCRUD projectsCRUD;
-        public UpdateTask(Task task)
+        public UpdateTask(Task task, Project project)
         {
             InitializeComponent();
             this.task = task;
             this.projectsCRUD = new ProjectsCRUD();
             this.DataContext = this.task;
+            this.project = project;
         }
 
         private void Save(object sender, RoutedEventArgs e)
         {
-            projectsCRUD.UpdateTask(task);
+            projectsCRUD.UpdateTask(task, project);
             this.Close();
         }
     }

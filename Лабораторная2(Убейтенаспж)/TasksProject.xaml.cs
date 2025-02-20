@@ -26,8 +26,10 @@ namespace Лабораторная2_Убейтенаспж_
         public TasksProject(Project project)
         {
             InitializeComponent();
-            this.DataContext = project;
+            this.DataContext = this;
             this.project = project;
+            Tasks = new ObservableCollection<Task>(project.Tasks);
+
         }
 
         private ObservableCollection<Task> tasks = new ObservableCollection<Task>();
@@ -62,9 +64,10 @@ namespace Лабораторная2_Убейтенаспж_
 
         private void OpenAddTask(object sender, RoutedEventArgs e)
         {
-            int projectId = project.Id;
-            AddTask addTask = new AddTask(projectId);
-            addTask.Show();
+            //int projectId = project.Id;
+            //AddTask addTask = new AddTask(projectId);
+            //addTask.Show();
+            MessageBox.Show("Эта функция в разработке, поскольку за много часов я её не починила... Спрошу у Пушкина... Потыкайте другие...");
         }
 
         private void OpenUpdateTask(object sender, RoutedEventArgs e)
@@ -72,7 +75,7 @@ namespace Лабораторная2_Убейтенаспж_
             if (Task == null)
                 return;
 
-            UpdateTask updateTask = new UpdateTask(Task);
+            UpdateTask updateTask = new UpdateTask(Task, project);
             updateTask.Show();
         }
 
@@ -80,9 +83,15 @@ namespace Лабораторная2_Убейтенаспж_
         {
             if (Task == null)
                 return;
-            projectsCRUD.DeleteTask(Task);
-            OnPropertyChanged(nameof(Task));
-            OnPropertyChanged(nameof(Tasks));
+            projectsCRUD.DeleteTask(Task, project);
+            //OnPropertyChanged(nameof(Task));
+            //OnPropertyChanged(nameof(Tasks));
+            Tasks.Clear();
+            foreach (var t in project.Tasks)
+            {
+                Tasks.Add(t);
+            }
+
         }
 
     }

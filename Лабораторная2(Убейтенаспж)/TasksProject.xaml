@@ -12,7 +12,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel >
-            <ListView ItemsSource="{Binding Tasks}">
+            <ListView ItemsSource="{Binding Tasks}" SelectedItem="{Binding Task}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Название задачи" DisplayMemberBinding="{Binding Title }"/>
@@ -33,8 +33,8 @@
         </StackPanel>
         <StackPanel Grid.Row="3">
             <Button Content="Добавить задачу" Click="OpenAddTask"/>
-            <Button Content="Изменить задачу" />
-            <Button Content="Удалить задачу"/>
+            <Button Content="Изменить задачу" Click="OpenUpdateTask" />
+            <Button Content="Удалить задачу" Click ="DeleteTask"/>
         </StackPanel>
 
     </Grid>
