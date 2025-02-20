@@ -94,5 +94,23 @@ namespace Лабораторная2_Убейтенаспж_
 
         }
 
+        private void AssignResponsibleButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Task == null) return;
+
+            var employees = new ObservableCollection<Employee>
+       {
+           new Employee { FIO = "Нуянцева Е.В.", Role = "Владелец" },
+           new Employee { FIO = "Ермолаева М.А.", Role = "Владелец" }
+       };
+
+            var responsibleTask = new ResponsibleTask(Task, employees);
+            responsibleTask.ShowDialog();
+            Tasks.Clear();
+            foreach (var t in project.Tasks)
+            {
+                Tasks.Add(t);
+            }
+        }
     }
 }

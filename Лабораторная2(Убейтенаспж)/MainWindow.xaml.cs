@@ -25,7 +25,7 @@ namespace Лабораторная2_Убейтенаспж_
         private ProjectsCRUD projectsCRUD = new ProjectsCRUD();
         private ObservableCollection<Project> _projects = new ObservableCollection<Project>();
         private Project _project;
-       
+        public ObservableCollection<Employee> Employees { get; set; }
         public ObservableCollection<Project> Projects
         {
             get => _projects;
@@ -52,6 +52,12 @@ namespace Лабораторная2_Убейтенаспж_
             InitializeComponent();
             this.DataContext = this;
             GetData();
+
+            Employees = new ObservableCollection<Employee>
+           {
+               new Employee { FIO = "Нуянцева Е.В.", Role = "Владелец" },
+               new Employee { FIO = "Ермолаева М.А.", Role = "Владелец" }
+           };
         }
 
         private async void GetData()
@@ -104,6 +110,12 @@ namespace Лабораторная2_Убейтенаспж_
             OnPropertyChanged(nameof(Project));
             OnPropertyChanged(nameof(Projects));
             GetData();
+        }
+
+        private void EmployeeListButton_Click(object sender, RoutedEventArgs e)
+        {
+            var employeeListPage = new EmployeeList(Employees);
+            MainFrame.Navigate(employeeListPage);
         }
     }
 }

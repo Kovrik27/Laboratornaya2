@@ -11,7 +11,8 @@ namespace Лабораторная2_Убейтенаспж_
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string Responsible { get; set; }
+        public Employee Responsible { get; set; }
         public string Status { get; set; }
+
     }
 }

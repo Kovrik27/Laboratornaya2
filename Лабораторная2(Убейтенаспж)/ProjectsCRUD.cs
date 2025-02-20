@@ -34,7 +34,7 @@ namespace Лабораторная2_Убейтенаспж_
                     DateStart = "30.02.2025",
                     DateEnd = "30.02.2025",
                     Status = "Бюджет не позволяет",
-                    Tasks = new ObservableCollection<Task> { new Task {Id = 1, Title = "Начать проект", Description = "По желанию", Responsible = "Ермолаева М.А.", Status = "Скоро" } }
+                    Tasks = new ObservableCollection<Task> { new Task {Id = 1, Title = "Начать проект", Description = "По желанию", Status = "Скоро" } }
                 }
             };
         }

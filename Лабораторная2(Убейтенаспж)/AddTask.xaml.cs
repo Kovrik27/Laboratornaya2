@@ -28,19 +28,19 @@ namespace Лабораторная2_Убейтенаспж_
 
         private void Save(object sender, RoutedEventArgs e)
         {
-            var task = new Task
-            {
-                Title = TitleTextBox.Text,
-                Description = DescriptionTextBox.Text,
-                Responsible = ResponsibleTextBox.Text,
-                Status = StatusTextBox.Text
-            };
+            //var task = new Task
+            //{
+            //    Title = TitleTextBox.Text,
+            //    Description = DescriptionTextBox.Text,
+            //    Responsible = ResponsibleTextBox.Text,
+            //    Status = StatusTextBox.Text
+            //};
 
-            var projectsCRUD = ProjectsCRUD.GetInstance();
-            projectsCRUD.AddTask(projectId, task);
+            //var projectsCRUD = ProjectsCRUD.GetInstance();
+            //projectsCRUD.AddTask(projectId, task);
 
-            MessageBox.Show("Задача успешно добавлена!");
-            this.Close();
+            //MessageBox.Show("Задача успешно добавлена!");
+            //this.Close();
         }
     }
 }

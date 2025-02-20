@@ -13,8 +13,12 @@
             <RowDefinition />
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="2">
+        <StackPanel Grid.Row="2" >
             <ListView ItemsSource="{Binding Projects}" SelectedItem="{Binding Project}">
                 <ListView.View>
                     <GridView>
@@ -43,5 +47,9 @@
             <Button Content="Удалить проект" Click="DeleteProject"/>
             <Button Content="Просмотреть прогресс проекта" Click="OpenTasksProject"/>
         </StackPanel>
+
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"  Grid.Column="2" Grid.Row="2" />
+        <Button Grid.Column="2"  Content="Список сотрудников" 
+                   Click="EmployeeListButton_Click"/>
     </Grid>
 </Window>
