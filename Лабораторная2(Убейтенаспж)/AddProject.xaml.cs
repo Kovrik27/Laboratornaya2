@@ -20,15 +20,24 @@ namespace Лабораторная2_Убейтенаспж_
     public partial class AddProject : Window
     {
         private ProjectsCRUD projectsCRUD;
+        public Project Project { get; set; }
         public AddProject()
         {
             InitializeComponent();
+            projectsCRUD = new ProjectsCRUD();
+            Project = new Project();
+            DataContext = this;
         }
 
         private void Save(object sender, RoutedEventArgs e)
         {
-            var project = (Project)this.DataContext;
-            projectsCRUD.AddProject(project);
+            if (Project != null )
+            {
+                projectsCRUD.AddProject(Project);
+
+                MessageBox.Show("Проект успешно добавлен!");
+                this.Close();
+            }           
         }
     }
 }

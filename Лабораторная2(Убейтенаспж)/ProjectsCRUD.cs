@@ -1,15 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Лабораторная2_Убейтенаспж_
 {
-    public class ProjectsCRUD
+    public class ProjectsCRUD : INotifyPropertyChanged
     {
         private static ProjectsCRUD instance;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         private ObservableCollection<Project> Projects { get; set; }
         private Project Project {  get; set; }
 
@@ -57,6 +65,8 @@ namespace Лабораторная2_Убейтенаспж_
                 Status = project.Status,
             };
             Projects.Add(newProject);
+            OnPropertyChanged(nameof(Projects));
+            
         }
 
         public async void UpdateProject(Project project)
